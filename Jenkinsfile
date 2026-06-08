@@ -9,7 +9,13 @@ pipeline {
             }
         }
 
-        stage('Run BookBus Test') {
+        stage('Install Browsers') {
+            steps {
+                bat 'npx playwright install'
+            }
+        }
+
+        stage('Run Tests') {
             steps {
                 bat 'npx playwright test tests/BookBus.spec.ts'
             }
